@@ -7,7 +7,7 @@ import com.cg.hsm.util.DbUtil;
 
 public class PatientCaseDaoImpl extends DbUtil implements PatientCaseDao {
 	/**
-	 * 
+	 * This addPatientCase method will add patient details in patients table in database
 	 */
 	@Override
 	public void addPatientCase(PatientCase patientcase) {
@@ -19,7 +19,7 @@ public class PatientCaseDaoImpl extends DbUtil implements PatientCaseDao {
 		
 	}
 	/**
-	 * 
+	 * This updatePatientCase method will update patientCase details in patients table in database
 	 */
 	@Override
 	public void updatePatientCase(PatientCase patientcase) {
@@ -27,7 +27,7 @@ public class PatientCaseDaoImpl extends DbUtil implements PatientCaseDao {
 		
 	}
 	/**
-	 * 
+	 * This deletePatientCase method will delete patientCase details from patients table in database
 	 */
 	@Override
 	public void deletePatientCase(PatientCase patientcase) {
@@ -35,7 +35,7 @@ public class PatientCaseDaoImpl extends DbUtil implements PatientCaseDao {
 		
 	}
 	/**
-	 *  
+	 *  This findAll method will list all patientCase details
 	 */
 	@Override
 	public List<PatientCase> findAll() {

@@ -1,4 +1,16 @@
 package com.cg.hsm.domain;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * This class will create patientCase table in database and get all patient  details
+ * @author samyuktha
+ *
+ */
+import javax.persistence.Embeddable;
+
+@Embeddable
+
 
 public class PatientCase {
 	/**
@@ -8,7 +20,13 @@ public class PatientCase {
 	/**
 	 * medicine for patient
 	 */
-	private String medicine;
+	private List<String> medicines = new ArrayList<String>() ;
+	public List<String> getMedicines() {
+		return medicines;
+	}
+	public void setMedicines(List<String> medicines) {
+		this.medicines = medicines;
+	}
 	/**
 	 * Reports of patients
 	 */
@@ -17,6 +35,12 @@ public class PatientCase {
 	 * currenttreatment given to patient
 	 */
 	private String currentTreatment;
+	@Override
+	public String toString() {
+		return "PatientCase [associatedDoctorName=" + associatedDoctorName + ", medicines=" + medicines + ", reports="
+				+ reports + ", currentTreatment=" + currentTreatment + ", diseaseDescription=" + diseaseDescription
+				+ "]";
+	}
 	/**
 	 * Detail description of disease
 	 */
@@ -35,12 +59,7 @@ public class PatientCase {
 	public void setassociatedDoctorId(String associatedDoctorName) {
 		this.associatedDoctorName = associatedDoctorName;
 	}
-	public String getMedicine() {
-		return medicine;
-	}
-	public void setMedicine(String medicine) {
-		this.medicine = medicine;
-	}
+	
 	public String getReports() {
 		return reports;
 	}
@@ -54,12 +73,13 @@ public class PatientCase {
 		this.currentTreatment = currentTreatment;
 	}
 	//Parameterized Constructor
-		public PatientCase(String associatedDoctorId,String reports, String currentTreatment,String medicine,String diseaseDescription) {
+		public PatientCase(String associatedDoctorId,String reports, String currentTreatment,ArrayList<String> medicines,String diseaseDescription) {
 			super();
 			this.associatedDoctorName = associatedDoctorName;
 			this.reports = reports;
 			this.currentTreatment = currentTreatment;
-			this.medicine = medicine;
+			this.medicines = medicines;
+			
 			this.diseaseDescription=diseaseDescription;
 		}
 		//Default Constructor
@@ -67,12 +87,7 @@ public class PatientCase {
 					super();
 					
 				}
-				@Override
-				public String toString() {
-					return "PatientCase [associatedDoctorName=" + associatedDoctorName + ", medicine=" + medicine + ", reports="
-							+ reports + ", currentTreatment=" + currentTreatment + ", diseaseDescription=" + diseaseDescription
-							+ "]";
-				}
+				
 				
 				
 

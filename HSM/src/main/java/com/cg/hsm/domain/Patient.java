@@ -2,11 +2,15 @@ package com.cg.hsm.domain;
 
 
 
-	import javax.persistence.Entity;
+	import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
 	import javax.persistence.GeneratedValue;
 	import javax.persistence.GenerationType;
 	import javax.persistence.Id;
-	import javax.persistence.Table;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 	/**
 	 * This class will create patient table in database and get all doctor details
 	 * @author 
@@ -45,10 +49,19 @@ package com.cg.hsm.domain;
 		 * fee for the patient admission fee
 		 */
 		private int admissionFee;
+		@Embedded
+		PatientCase patientCase;
+		//@Column(name="patientcase")
 		
 		//getters and setters
 		
 		
+		public PatientCase getPatientCase() {
+			return patientCase;
+		}
+		public void setPatientCase(PatientCase patientCase) {
+			this.patientCase = patientCase;
+		}
 		public int getPatientId() {
 			return patientId;
 		}
